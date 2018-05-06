@@ -74,6 +74,30 @@ public class Main {
 
             //scanner instance
             String direction = scanner.nextLine().toUpperCase();
+            //challenge step 2, put a check inn here,
+            if (direction.length() > 1) { //if you put in more than one letter
+                String[] words = direction.split(" ");
+                for (String word : words) {
+                    if (vocabulary.containsKey(word)) {
+                        direction = vocabulary.get(word); //get retrieves value from the map
+                        break;
+                        //run to test
+                        /*
+                        You are standing by a small building
+                        Available exits are S, E, N, W,
+                        go west
+                        You are on a hill
+                        Available exits are N,
+                        n
+                        You are in a scary forest
+                        Available exits are S, W,
+                        take south
+                        You are standing by a small building
+                        Available exits are S, E, N, W,
+                         */
+                    }
+                }
+            }
 
             if (exits.containsKey(direction)) {
                 loc = exits.get(direction);
