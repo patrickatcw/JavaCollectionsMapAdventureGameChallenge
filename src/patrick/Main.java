@@ -32,29 +32,31 @@ public class Main {
         locations.put(4, new Location(4, "You are by a stream"));
         locations.put(5, new Location(5, "You are in a scary forest"));
 
-        //exits for each location
+        //exits for each location, had to change these
         locations.get(1).addExit("W", 2);
         locations.get(1).addExit("E", 3);
         locations.get(1).addExit("S", 4);
         locations.get(1).addExit("N", 5);
-        locations.get(1).addExit("Q", 0);
 
         locations.get(2).addExit("N", 5);
-        locations.get(2).addExit("Q", 0);
 
         locations.get(3).addExit("W", 1);
-        locations.get(3).addExit("Q", 0);
 
         locations.get(4).addExit("N", 1);
         locations.get(4).addExit("W", 2);
-        locations.get(4).addExit("Q", 0);
 
         locations.get(5).addExit("S", 1);
         locations.get(5).addExit("W", 2);
-        locations.get(5).addExit("Q", 0);
 
+        //challenge step 1, create a map for vocabulary
+        Map<String, String> vocabulary = new HashMap<String, String>();
+        vocabulary.put("QUIT", "Q");
+        vocabulary.put("NORTH", "N");
+        vocabulary.put("SOUTH", "S");
+        vocabulary.put("WEST", "W");
+        vocabulary.put("EAST", "E");
 
-        //step 10
+        //while loop
         int loc = 1;
         while (true) {
             System.out.println(locations.get(loc).getDesription());
@@ -62,7 +64,7 @@ public class Main {
                 break;
             }
 
-            //step 12 directions
+            //directions
             Map<String, Integer> exits = locations.get(loc).getExits(); //returning actual location object
             System.out.print("Available exits are ");
             for (String exit : exits.keySet()) {
@@ -70,7 +72,7 @@ public class Main {
             }
             System.out.println();
 
-            //step 13 scanner instance
+            //scanner instance
             String direction = scanner.nextLine().toUpperCase();
 
             if (exits.containsKey(direction)) {
