@@ -17,6 +17,7 @@ public class Location {
         this.desription = desription;
         //manually set our exits up
         this.exits = new HashMap<String, Integer>();
+        this.exits.put("Q", 0);
     }
 
     //method for adding exits
